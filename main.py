@@ -260,4 +260,4 @@ print(matrix_r1)
 
 import fibo
 
-fibo.fib(10)
+fibo.fib(100)
