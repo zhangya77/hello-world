@@ -219,7 +219,7 @@ print(result)
 
 from collections import deque
 
-q=deque()
+q = deque()
 
 q.append('a')
 q.append('b')
@@ -261,3 +261,75 @@ print(matrix_r1)
 import fibo
 
 fibo.fib(100)
+
+print(dir())
+print(dir(sys))
+
+print(f"模块的 __name__ 值: {__name__}")
+
+with open("test2.txt",'w+') as fw:
+    fw.write("Python 是一个非常好的语言。\n是的，的确非常好!!\n")
+    fw.write("确实\n")
+    fw.seek(0)
+    ct1=fw.read()
+print("content:",ct1)
+print("done")
+
+with open("test2.txt",'r') as fw:
+    i=0
+    for line in fw:
+        print("line{}:{}".format(i,line),end='')
+        i+=1
+
+import pickle,pprint
+
+# 使用pickle模块将数据对象保存到文件
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+
+pkl_file = open('data.pkl', 'rb')
+
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+
+import os
+cur_dir=os.getcwd()
+subs=os.listdir()
+print(cur_dir)
+print(subs)
+
+try:
+    with open("test2.txt1",'r') as fw:
+        data=fw.read()
+except FileNotFoundError as fnf_error:
+        print(fnf_error)
+else:
+    print("no exceptions")
+finally:
+    print("done")
+
+def add_numbers(a: int, b: int) -> int:
+    return a + b
+
+result = add_numbers(5, 3)
+print(result)
+

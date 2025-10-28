@@ -15,3 +15,5 @@ def fib2(n):  # 返回到 n 的斐波那契数列
         result.append(b)
         a, b = b, a + b
     return result
+
+print(f"模块的 __name__ 值: {__name__}")
